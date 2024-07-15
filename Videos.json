@@ -1,0 +1,63 @@
+{"Videos":[
+    {
+        "id": 1,
+        "titulo": "Introducción a React",
+        "url": "https://youtu.be/nzVdLC_QpnA?si=v-w2qfG9LZnHj_dY",
+        "categoria": "Desarrollo Web"
+    },
+    {
+        "id": 2,
+        "titulo": "Aprendiendo Node.js",
+        "url": "https://youtu.be/nzVdLC_QpnA?si=v-w2qfG9LZnHj_dY",
+        "categoria": "Backend"
+    },
+    {
+        "id": 3,
+        "titulo": "Tutorial de CSS Flexbox",
+        "url": "https://youtu.be/nzVdLC_QpnA?si=v-w2qfG9LZnHj_dY",
+        "categoria": "Desarrollo Web"
+    },
+    {
+        "id": 4,
+        "titulo": "Guía Completa de Python",
+        "url": "https://example.com/video/4",
+        "categoria": "Programación"
+    },
+    {
+        "id": 5,
+        "titulo": "Curso de Docker para Principiantes",
+        "url": "https://example.com/video/5",
+        "categoria": "DevOps"
+    },
+    {
+        "id": 6,
+        "titulo": "Introducción a TypeScript",
+        "url": "https://example.com/video/6",
+        "categoria": "Desarrollo Web"
+    },
+    {
+        "id": 7,
+        "titulo": "Bases de Datos SQL",
+        "url": "https://example.com/video/7",
+        "categoria": "Bases de Datos"
+    },
+    {
+        "id": 8,
+        "titulo": "Kubernetes desde Cero",
+        "url": "https://example.com/video/8",
+        "categoria": "DevOps"
+    },
+    {
+        "id": 9,
+        "titulo": "JavaScript Avanzado",
+        "url": "https://example.com/video/9",
+        "categoria": "Desarrollo Web"
+    },
+    {
+        "id": 10,
+        "titulo": "Machine Learning con Python",
+        "url": "https://example.com/video/10",
+        "categoria": "Data Science"
+    }
+]
+}

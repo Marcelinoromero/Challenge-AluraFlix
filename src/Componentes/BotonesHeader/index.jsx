@@ -36,7 +36,7 @@ button:hover{
 `
 
 
-function BotonesCabecera () {
+function BotonesHeader () {
     return <EstilosBoton>
         <button alt="Home"><h2> HOME </h2></button>
         <button alt="Nuevo Video"><h2> NUEVO VIDEO </h2></button>
@@ -44,4 +44,4 @@ function BotonesCabecera () {
 }
 
 
-export default BotonesCabecera;
+export default BotonesHeader;

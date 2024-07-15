@@ -1,10 +1,12 @@
-
+import EstilosGlobales from './Componentes/EstilosGlobales'
 import { useState } from 'react'
 import styled from 'styled-components'
-import EstilosGlobales from './Conponentes/EstilosGlobales'
-import HeaderCabecera from '../public/Header'
-import BanerMain from '../public/BannerMain'
-import SeccionVideo from '../public/SeccionVideo'
+import HeaderCabecera1 from './Componentes/Header1'
+import BanerMain from './Componentes/BannerMain'
+import ContenedorVideos from './Componentes/ContenedorVideos'
+import CartelSeccion from './Componentes/CartelSeccion'
+
+
 
 const FondoGradiente = styled.div`
 background: rgb(2,0,36);
@@ -19,16 +21,13 @@ function App() {
     <>
     <FondoGradiente>
     <EstilosGlobales/>
-    <HeaderCabecera/>
+    <HeaderCabecera1/>
     <BanerMain/>
-    <SeccionVideo>
-      
-    </SeccionVideo>
-
-
+    <ContenedorVideos/>
+    
     </FondoGradiente>
     </>
   )
 }
 
-export default App
+export default App;

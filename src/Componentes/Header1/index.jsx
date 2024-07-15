@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BotonesCabecera from "../BotonesCabecera";
+import BotonesHeader from "../BotonesHeader";
 
 
 const HeaderEstlizado = styled.header`
@@ -16,11 +16,11 @@ const HeaderEstlizado = styled.header`
 `
 
 
-const HeaderCabecera= () => {
+const HeaderCabecera1= () => {
     return <HeaderEstlizado>
     <img src="src\Imagenes/Logo2.png"  alt="Logo Alura Flix"/>
-    <BotonesCabecera/>
+    <BotonesHeader/>
     </HeaderEstlizado>
 }
 
-export default HeaderCabecera;
+export default HeaderCabecera1;
