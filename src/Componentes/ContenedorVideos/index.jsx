@@ -38,8 +38,27 @@ const ContenedorVideos = () => {
         obtenerVideos();
     }, []);
 
+    const deleteHandler = (id, e) => {
+        axios.delete(`http://localhost:3000/Videos/${id}`)
+            .then((response) => {
+                console.log(response);
+                obtenerVideos();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
     return <EstiloSeccion>
-        {videos.map((video) => (<VideoCard />))}
+        {videos.map(
+            (video) => 
+            (<VideoCard
+            key={video.id}     
+            url={video.url}
+            id={video.id}
+            categoria={video.categoria}
+            titulo={video.titulo}
+            deleteHandler={deleteHandler}
+            />))}
       
 
 

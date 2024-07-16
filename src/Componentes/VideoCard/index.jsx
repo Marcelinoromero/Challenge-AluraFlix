@@ -31,11 +31,11 @@ const EstiloCard = styled.div`
 
 
 
-const VideoCard = () => {
+const VideoCard = (props) => {
 
     return <EstiloCard>
 
-        <iframe width="95%" height="" src="https://www.youtube.com/embed/nzVdLC_QpnA?si=v-w2qfG9LZnHj_dY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    <BotoneraCard />
+        <iframe width="95%" height="" src={props.url} title={props.titulo} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    <BotoneraCard id={props.id} deleteHandler={props.deleteHandler} />
     </EstiloCard>
 
 

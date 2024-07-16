@@ -45,23 +45,19 @@ const EstiloBoton = styled.button`
     }
 `
 
-const BotoneraCard = () =>{
+const BotoneraCard = ({ id, deleteHandler }) =>{
 
-return <EstiloBotonera>
-
-    <EstiloBoton>
-
-    <button >
-    <img src="src/Imagenes/basura.png" alt="Borrar" />
-    Borrar
+return  <EstiloBotonera>
+<EstiloBoton>
+    <button onClick={(e) => deleteHandler(id, e)}>
+        <img src="src/Imagenes/basura.png" alt="Borrar" />
+        Borrar
     </button>
     <button>
-    <img src="src/Imagenes/editar.png" alt="Borrar" />
-    Editar
+        <img src="src/Imagenes/editar.png" alt="Editar" />
+        Editar
     </button>
-
-    </EstiloBoton>
-
+</EstiloBoton>
 </EstiloBotonera>
 
 }

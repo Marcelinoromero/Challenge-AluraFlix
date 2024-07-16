@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import HeaderCabecera1 from './Componentes/Header1'
 import BanerMain from './Componentes/BannerMain'
 import ContenedorVideos from './Componentes/ContenedorVideos'
-import CartelSeccion from './Componentes/CartelSeccion'
+import FormularioEditar from './Componentes/FormularioEditar'
+import FormularioNuevoVideo from './Componentes/FormularioNuevoVideo'
+
 
 
 
@@ -25,6 +27,8 @@ function App() {
     <BanerMain/>
     <ContenedorVideos/>
     
+    <FormularioEditar/>
+    <FormularioNuevoVideo/>
     </FondoGradiente>
     </>
   )
