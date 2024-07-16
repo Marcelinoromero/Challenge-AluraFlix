@@ -20,23 +20,11 @@ const EstiloSeccion = styled.div`
 
 
 
-const ContenedorVideos = () => {
-    const [videos, setVideos] = useState([]);
-
-    const obtenerVideos = async () => {
-        try {
-            const respuesta = await axios.get('http://localhost:3000/Videos');//ACA HACEMOS LA PETICION CON AXIOS, PARA LUEGO CONVERTIRLA EN LISTA
-            setVideos(respuesta.data);
-            console.log(respuesta)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-
+const ContenedorVideos = ({ videos, obtenerVideos }) => {
     useEffect(() => {
-        obtenerVideos();
-    }, []);
+      obtenerVideos();
+    }, [obtenerVideos]);
+
 
     const deleteHandler = (id, e) => {
         axios.delete(`http://localhost:3000/Videos/${id}`)

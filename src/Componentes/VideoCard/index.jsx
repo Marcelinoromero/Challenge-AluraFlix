@@ -6,7 +6,7 @@ const EstiloCard = styled.div`
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: auto;
+    height: 100%;
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -35,7 +35,8 @@ const VideoCard = (props) => {
 
     return <EstiloCard>
 
-        <iframe width="95%" height="" src={props.url} title={props.titulo} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    <BotoneraCard id={props.id} deleteHandler={props.deleteHandler} />
+        <iframe width="95%" height="600px" src={props.url} title={props.titulo} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+           <BotoneraCard id={props.id} deleteHandler={props.deleteHandler} />
     </EstiloCard>
 
 

@@ -1,7 +1,8 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const EstiloFormulario = styled.div`
+const EstiloFormulario = styled.form`
   position: absolute;
   margin-top: 20%;
   top: 50%;
@@ -124,43 +125,101 @@ const EstiloBoton = styled.button`
   }
 `;
 
-const FormularioNuevoVideo = () => {
-    return (
-        <EstiloFormulario>
-            <img src="src/Imagenes/delete1.png" alt="Imagen" />
-            <h1>NUEVO VIDEO</h1>
-            <h3>Complete el formulario para crear una nueva tarjeta de video</h3>
+const FormularioNuevoVideo = ({ obtenerVideos }) => {
+  const [url, setUrl] = useState('');
+  const [titulo, setTitulo] = useState('');
+  const [categoria, setCategoria] = useState('')
+  const [categories] = useState([
+    { id: 'frontend', name: 'Front-End' },
+    { id: 'backend', name: 'Back-End' },
+    { id: 'innovation', name: 'Innovación y gestión' },
+  ]);
 
-            <EstiloCampo>
-                <label htmlFor="titulo">Titulo:</label>
-                <input type="text" id="titulo" placeholder="Ingresar Titulo" required />
 
-                <label htmlFor="categoria">Categoria:</label>
+  /*-------------GUARDAR------------------ */
+  const handleSubmit = async (evento) => {
+    evento.preventDefault();
+    try {
+      console.log('submiting')
+      const respuesta = await axios.post('http://localhost:3000/Videos',
+        {
+          url: url,
+          titulo: titulo,
+          categoria: categoria,
+        });
+      obtenerVideos();
 
-                <select id="categoria" required>
-                    <option value="">Seleccione Categoria</option>
-                    <option value="categoria1">Categoría 1</option>
-                    <option value="categoria2">Categoría 2</option>
-                    <option value="categoria3">Categoría 3</option>
-                </select>
+      setVisible(false);
 
-                <label htmlFor="imagen">Imagen:</label>
-                <input type="text" id="url_imagen" placeholder="Ingresar dirección" required />
+    } catch (error) {
+      console.log(error);
+    }
 
-                <label htmlFor="imagen">Video:</label>
-                <input type="text" id="url_video" placeholder="Ingresar url" required />
+  }
 
-                <label htmlFor="textoEntrada">Descripción:</label>
-                <input type="text" id="textoEntrada" placeholder="Ingrese su descripción aquí" required />
-    
-            </EstiloCampo>
+  /*---------------LIMPIAR---------------- */
 
-            <CuadroBoton>
-                <EstiloBoton>Guardar</EstiloBoton>
-                <EstiloBoton>Limpiar</EstiloBoton>
-            </CuadroBoton>
-        </EstiloFormulario>
-    );
+  const handleClear = async (e) => {
+    try {
+      console.log('Clearing');
+      await axios.put('http://localhost:3000/Videos/clear');
+      setUrl('');
+      setTitulo('');
+      setCategoria('');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  /*------------------------------- */
+
+  return (
+    <EstiloFormulario onSubmit={handleSubmit}>
+      <img src="src/Imagenes/delete1.png" alt="Imagen" />
+      <h1>NUEVO VIDEO</h1>
+      <h3>Complete el formulario para crear una nueva tarjeta de video</h3>
+
+      <EstiloCampo>
+        <label htmlFor="titulo">Titulo:</label>
+        <input type="text" id="titulo" placeholder="Ingresar Titulo" onChange={(e) => {
+          setTitulo(e.target.value)
+          console.log(titulo)
+        }} required />
+
+        <label htmlFor="categoria">Categoria:</label>
+
+        <select
+          id="categoria"
+          value={categoria}
+          onChange={(e) => {
+            setCategoria(e.target.value);
+            console.log(e.target.value); // Asegúrate de capturar el valor correcto
+          }}
+          required
+        >
+          <option value="">Seleccione Categoría</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.name}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+
+        <label htmlFor="imagen">Video:</label>
+        <input type="text" id="url_video" placeholder="Ingresar url" onChange={(e) => {
+          setUrl(e.target.value)
+          console.log(url)
+        }} required />
+
+
+      </EstiloCampo>
+
+      <CuadroBoton>
+        <EstiloBoton type='submit'>Guardar</EstiloBoton>
+        <EstiloBoton type="button" >Limpiar</EstiloBoton>
+      </CuadroBoton>
+    </EstiloFormulario>
+  );
 };
 
 export default FormularioNuevoVideo;

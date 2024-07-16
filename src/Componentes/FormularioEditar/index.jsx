@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const EstiloFormulario = styled.div`
@@ -124,6 +124,7 @@ const EstiloBoton = styled.button`
 `;
 
 const FormularioEditar = () => {
+
     return (
         <EstiloFormulario>
             <img src="src/Imagenes/delete.png" alt="Imagen" />
@@ -142,14 +143,8 @@ const FormularioEditar = () => {
                     <option value="categoria3">Categoría 3</option>
                 </select>
 
-                <label htmlFor="imagen">Imagen:</label>
-                <input type="text" id="url_imagen" placeholder="Ingresar dirección" required />
-
                 <label htmlFor="imagen">Video:</label>
                 <input type="text" id="url_video" placeholder="Ingresar url" required />
-
-                <label htmlFor="textoEntrada">Descripción:</label>
-                <input type="text" id="textoEntrada" placeholder="Ingrese su descripción aquí" required />
     
             </EstiloCampo>
 
