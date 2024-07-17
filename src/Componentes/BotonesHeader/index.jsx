@@ -36,10 +36,17 @@ button:hover{
 `
 
 
-function BotonesHeader () {
+function BotonesHeader({ mostrar, cambiarMostrar }) {
     return <EstilosBoton>
+        {console.log}
         <button alt="Home"><h2> HOME </h2></button>
-        <button alt="Nuevo Video"><h2> NUEVO VIDEO </h2></button>
+        <button alt="Nuevo Video" onClick={() => {
+            if (mostrar) { }
+            else {
+                cambiarMostrar();
+            }
+
+        }}><h2> NUEVO VIDEO </h2></button>
     </EstilosBoton>;
 }
 

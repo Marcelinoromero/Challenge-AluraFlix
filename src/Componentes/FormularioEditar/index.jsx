@@ -123,34 +123,34 @@ const EstiloBoton = styled.button`
   }
 `;
 
-const FormularioEditar = () => {
+const FormularioEditar = ({videos, obtenerVideos,cambiarMostrarEdit}) => {
 
     return (
         <EstiloFormulario>
-            <img src="src/Imagenes/delete.png" alt="Imagen" />
-            <h1>EDITAR CARD:</h1>
+            <img src="src/Imagenes/delete.png" style={{ cursor: "pointer" }} alt="Imagen" onClick={(e)=>{cambiarMostrarEdit()}}/>
+            <h1>EDITAR VIDEO:</h1>
 
             <EstiloCampo>
                 <label htmlFor="titulo">Titulo:</label>
-                <input type="text" id="titulo" placeholder="Ingresar Titulo" required />
+                <input type="text" id="titulo" placeholder="Edite Titulo" required />
 
                 <label htmlFor="categoria">Categoria:</label>
 
                 <select id="categoria" required>
-                    <option value="">Seleccione Categoria</option>
-                    <option value="categoria1">Categoría 1</option>
-                    <option value="categoria2">Categoría 2</option>
-                    <option value="categoria3">Categoría 3</option>
+                    <option value="">Edite Categoria</option>
+                    <option >Front-End</option>
+                    <option >Back-End</option>
+                    <option >Innovación y gestión</option>
                 </select>
 
                 <label htmlFor="imagen">Video:</label>
-                <input type="text" id="url_video" placeholder="Ingresar url" required />
+                <input type="text" id="url_video" placeholder="Edite url" required />
     
             </EstiloCampo>
 
             <CuadroBoton>
                 <EstiloBoton>Guardar</EstiloBoton>
-                <EstiloBoton>Limpiar</EstiloBoton>
+                
             </CuadroBoton>
         </EstiloFormulario>
     );

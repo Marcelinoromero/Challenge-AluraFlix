@@ -20,7 +20,7 @@ const EstiloSeccion = styled.div`
 
 
 
-const ContenedorVideos = ({ videos, obtenerVideos }) => {
+const ContenedorVideos = ({ videos, obtenerVideos,cambiarMostrarEdit }) => {
     useEffect(() => {
       obtenerVideos();
     }, [obtenerVideos]);
@@ -36,6 +36,7 @@ const ContenedorVideos = ({ videos, obtenerVideos }) => {
                 console.log(error);
             });
     }
+  
     return <EstiloSeccion>
         {videos.map(
             (video) => 
@@ -46,6 +47,8 @@ const ContenedorVideos = ({ videos, obtenerVideos }) => {
             categoria={video.categoria}
             titulo={video.titulo}
             deleteHandler={deleteHandler}
+            cambiarMostrarEdit={cambiarMostrarEdit}
+            
             />))}
       
 

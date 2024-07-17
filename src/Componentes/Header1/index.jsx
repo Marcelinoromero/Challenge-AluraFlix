@@ -16,10 +16,11 @@ const HeaderEstlizado = styled.header`
 `
 
 
-const HeaderCabecera1= () => {
+const HeaderCabecera1= ({mostrar,cambiarMostrar}) => {
     return <HeaderEstlizado>
+        
     <img src="src\Imagenes/Logo2.png"  alt="Logo Alura Flix"/>
-    <BotonesHeader/>
+    <BotonesHeader mostrar={mostrar} cambiarMostrar={cambiarMostrar} />
     </HeaderEstlizado>
 }
 

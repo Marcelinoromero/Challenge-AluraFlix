@@ -125,9 +125,9 @@ const EstiloBoton = styled.button`
   }
 `;
 
-const FormularioNuevoVideo = ({ obtenerVideos }) => {
-  const [url, setUrl] = useState('');
-  const [titulo, setTitulo] = useState('');
+const FormularioNuevoVideo = ({cambiarMostrar, obtenerVideos }) => {
+  const [url, setUrl] = useState('Ingresar url');
+  const [titulo, setTitulo] = useState('Ingresar Titulo');
   const [categoria, setCategoria] = useState('')
   const [categories] = useState([
     { id: 'frontend', name: 'Front-End' },
@@ -148,8 +148,8 @@ const FormularioNuevoVideo = ({ obtenerVideos }) => {
           categoria: categoria,
         });
       obtenerVideos();
-
-      setVisible(false);
+      cambiarMostrar();
+      
 
     } catch (error) {
       console.log(error);
@@ -159,29 +159,26 @@ const FormularioNuevoVideo = ({ obtenerVideos }) => {
 
   /*---------------LIMPIAR---------------- */
 
-  const handleClear = async (e) => {
-    try {
-      console.log('Clearing');
-      await axios.put('http://localhost:3000/Videos/clear');
-      setUrl('');
-      setTitulo('');
-      setCategoria('');
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
+  const handleClear = () => {
+    setTitulo('');
+    setCategoria('');
+    setUrl('');
+  }
+
+  
 
   /*------------------------------- */
 
   return (
     <EstiloFormulario onSubmit={handleSubmit}>
-      <img src="src/Imagenes/delete1.png" alt="Imagen" />
+      <img style={{ cursor: "pointer" }} src="src/Imagenes/delete1.png" alt="Imagen" onClick={cambiarMostrar}/>
       <h1>NUEVO VIDEO</h1>
       <h3>Complete el formulario para crear una nueva tarjeta de video</h3>
 
       <EstiloCampo>
         <label htmlFor="titulo">Titulo:</label>
-        <input type="text" id="titulo" placeholder="Ingresar Titulo" onChange={(e) => {
+        <input type="text" id="titulo" placeholder="Ingrese titulo" value={titulo}onChange={(e) => {
           setTitulo(e.target.value)
           console.log(titulo)
         }} required />
@@ -206,7 +203,10 @@ const FormularioNuevoVideo = ({ obtenerVideos }) => {
         </select>
 
         <label htmlFor="imagen">Video:</label>
-        <input type="text" id="url_video" placeholder="Ingresar url" onChange={(e) => {
+        <input type="text" id="url_video" 
+        placeholder="Ingresar url" 
+        value={titulo}
+        onChange={(e) => {
           setUrl(e.target.value)
           console.log(url)
         }} required />
@@ -216,7 +216,7 @@ const FormularioNuevoVideo = ({ obtenerVideos }) => {
 
       <CuadroBoton>
         <EstiloBoton type='submit'>Guardar</EstiloBoton>
-        <EstiloBoton type="button" >Limpiar</EstiloBoton>
+        <EstiloBoton type="button" onClick={handleClear}>Limpiar</EstiloBoton>
       </CuadroBoton>
     </EstiloFormulario>
   );

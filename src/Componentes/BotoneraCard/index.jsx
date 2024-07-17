@@ -45,7 +45,7 @@ const EstiloBoton = styled.button`
     }
 `
 
-const BotoneraCard = ({ id, deleteHandler }) =>{
+const BotoneraCard = ({ id,deleteHandler,cambiarMostrarEdit }) =>{
 
 return  <EstiloBotonera>
 <EstiloBoton>
@@ -53,7 +53,7 @@ return  <EstiloBotonera>
         <img src="src/Imagenes/basura.png" alt="Borrar" />
         Borrar
     </button>
-    <button>
+    <button onClick={(e) => cambiarMostrarEdit()}>
         <img src="src/Imagenes/editar.png" alt="Editar" />
         Editar
     </button>

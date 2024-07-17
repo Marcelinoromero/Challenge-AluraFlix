@@ -18,13 +18,24 @@ min-height: 100vh;
 `
 
 function App() {
-  const [videos, setVideos] = useState([]);
 
+
+  const [videos, setVideos] = useState([]);
+  const[mostrar,setMostrar]=useState(false);
+  const[mostrarEdit,setMostrarEdit]=useState(false);
+  const cambiarMostrar=()=>{
+    setMostrar(!mostrar)
+    
+  }
+  const cambiarMostrarEdit=()=>{
+    setMostrarEdit(!mostrarEdit)
+    
+  }
   const obtenerVideos = async () => {
     try {
       const respuesta = await axios.get('http://localhost:3000/Videos');
       setVideos(respuesta.data);
-      console.log(respuesta);
+      
     } catch (error) {
       console.log(error);
     }
@@ -34,11 +45,11 @@ function App() {
     <>
       <FondoGradiente>
         <EstilosGlobales />
-        <HeaderCabecera1 />
+        <HeaderCabecera1 mostrar={mostrar} cambiarMostrar={cambiarMostrar} />
         <BanerMain />
-        <ContenedorVideos videos={videos} obtenerVideos={obtenerVideos} />
-        <FormularioEditar />
-        <FormularioNuevoVideo obtenerVideos={obtenerVideos} />
+        <ContenedorVideos videos={videos} obtenerVideos={obtenerVideos} cambiarMostrarEdit={cambiarMostrarEdit} />
+       {mostrarEdit && <FormularioEditar obtenerVideos={obtenerVideos} cambiarMostrarEdit={cambiarMostrarEdit} />}
+        {mostrar && <FormularioNuevoVideo obtenerVideos={obtenerVideos} cambiarMostrar={cambiarMostrar} />}
       </FondoGradiente>
     </>
   );
